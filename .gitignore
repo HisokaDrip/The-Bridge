@@ -1,1 +1,4 @@
 ngrok.exe
+
+# local secrets
+.env

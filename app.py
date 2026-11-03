@@ -8,6 +8,7 @@ import time
 import logging
 import json
 import os
+import secrets
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 from PIL import Image, ImageOps
@@ -19,7 +20,9 @@ log.setLevel(logging.ERROR)
 logging.getLogger("ultralytics").setLevel(logging.ERROR)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'NEON_PULSE_NO_REPEATS'
+# read the secret key from the environment; random fallback is fine for local dev
+# (sessions just reset on restart). set SECRET_KEY in production.
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or secrets.token_hex(32)
 
 socketio = SocketIO(app, 
                     async_mode='eventlet', 
