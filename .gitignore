@@ -2,3 +2,30 @@ ngrok.exe
 
 # local secrets
 .env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+env/
+build/
+dist/
+
+# local secrets / env
+.env
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+New Text Document*.txt
+.idea/
+.vscode/
+*.swp
+
+# binaries / runtime data
+*.exe
+user_data.json
